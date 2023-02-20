@@ -11,7 +11,7 @@ headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 site = requests.get(url, headers=headers)
 soup = BeautifulSoup(site.content, 'html.parser')
 
-quero = {'link': [], 'data': []}
+quero = {'link': [], 'data': [], 'titulo': []}
 
 for i in range(0, 3):
     url_pag = f'https://www.ufrpe.br/br/lista-de-noticias?page={i}'
@@ -27,6 +27,12 @@ for i in range(0, 3):
     for dado in d:
         data = dado.find('span', class_=re.compile('postado')).get_text().strip()
         quero['data'].append(data)
+
+    t = soup.find_all('div', class_=re.compile('views-field views-field-title'))
+
+    for titulo in t:
+        titulo = titulo.find('a').get_text().strip()
+        quero['titulo'].append(titulo)
 
 
 
