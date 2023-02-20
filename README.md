@@ -1,6 +1,6 @@
 # UfrChat
 
-Projeto Interdiciplinar 2
+Projeto Interdisciplinar 2
 
 - Felipe Patriota
 - Felipe Bertulino
