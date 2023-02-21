@@ -49,9 +49,12 @@ for i in range(len (quero['link'])):
     url_p = 'https://www.ufrpe.br/' + quero['link'][i]	
     site = requests.get(url_p, headers=headers)
     soup = BeautifulSoup(site.content, 'html.parser')
-    conteudo = soup.find('div', class_=re.compile('field field-name-body field-type-text-with-summary field-label-hidden'))
-    texto = conteudo.find('p').get_text().strip()
+    soup = soup.find('div', class_=re.compile('field field-name-body field-type-text-with-summary field-label-hidden'))
+    texto = soup.find_all('p')
+    texto = [t.get_text().strip() for t in texto]
+    texto = ' '.join(texto)
     quero['texto'].append(texto)
+
 
 
 
