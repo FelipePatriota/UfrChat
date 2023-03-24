@@ -1,7 +1,7 @@
 import openai
 
 # Substitua "sk-..." pela sua chave de API secreta
-openai.api_key = "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"
+openai.api_key = ""
 
 # Escolha um modelo da open ai (por exemplo, davinci)
 model = "text-davinci-003"
